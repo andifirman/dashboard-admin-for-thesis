@@ -124,19 +124,27 @@ class GamesController extends Controller
     return response()->download($pathToFile);
   }
 
+  // Fungsi delete()
+  public function destroy(Games $game)
+  {
+    $game->delete();
 
-  // public function content(Request $request)
-  // {
-  //     // Building directory path.
-  //     $directory = storage_path('app/files');
-      
-  //     // Will return an array of files in the directory
-  //     // Each array element is Symfony\Component\Finder\SplFileInfo object
-  //     $files = Illuminate\Support\Facades\File::allFiles($directory);
-      
-  //     foreach ($files as $file) {
-  //         $contents = $file->getContents();
-  //     }
-  // }
+    return redirect()->route('games.index')->with('succes','Course Berhasil di Hapus');
+  }
+
+
+  // DEVELOP NANTI UNTUK READ FILE
+  public function contents($user_id)
+  {
+    // $game = Game::where('user_id', $user_id)->firstOrFail();
+    // $pathToFile = storage_path('app/files/' . $game->cover);
+    
+    // return response()->download($pathToFile);
+
+    $contents = File::get(storage_path('app/files/' . $game->cover));
+
+    return $contents;
+  }
+  
 
 }

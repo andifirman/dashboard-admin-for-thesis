@@ -72,6 +72,19 @@
   border: none !important;
 }
 
+.course-img{
+  width: auto;
+  height: 20em;
+}
+
+
+
+/* CRUD ICON */
+/* .crud-icon{
+  margin-right: 10px;
+} */
+
+
 
 
 

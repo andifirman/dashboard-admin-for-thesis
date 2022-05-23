@@ -43,6 +43,7 @@ Route::get('/games/{game}', 'App\Http\Controllers\GamesController@show');
 
 //-- Files Download Routes --//
 Route::get('/games/{user_id}/download', 'App\Http\Controllers\GamesController@download')->name('games.download');
+// Route::get('/games/contents', 'App\Http\Controllers\GamesController@contents');
 
 //-- Read Files to View Routes --//
 // Route::get('/games/content', 'App\Http\Controllers\GamesController@content')->name('games.content');
