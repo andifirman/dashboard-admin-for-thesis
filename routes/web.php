@@ -40,6 +40,9 @@ Route::get('/games', 'App\Http\Controllers\GamesController@index');
 Route::get('/games/create', 'App\Http\Controllers\GamesController@create');
 Route::post('/games', 'App\Http\Controllers\GamesController@store');
 Route::get('/games/{game}', 'App\Http\Controllers\GamesController@show');
+Route::get('/games/delete/{id}', 'App\Http\Controllers\GamesController@delete');
+Route::get('/games/edit/{id}', 'App\Http\Controllers\GamesController@edit');
+Route::post('/games/update', 'App\Http\Controllers\GamesController@update');
 
 //-- Files Download Routes --//
 Route::get('/games/{user_id}/download', 'App\Http\Controllers\GamesController@download')->name('games.download');

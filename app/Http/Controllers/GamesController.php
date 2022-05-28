@@ -13,6 +13,8 @@ use App\Models\User;
 use App\Models\Files;
 use Webpatser\Uuid\Uuid;
 
+// use DB;
+
 
 class GamesController extends Controller
 {
@@ -125,25 +127,71 @@ class GamesController extends Controller
   }
 
   // Fungsi delete()
-  public function destroy(Games $game)
+  public function delete($id)
   {
-    $game->delete();
+    $game = Game::where('id', $id)->delete();
+    // DB::table('students')->where('id_siswa', $id)->delete();
+    // File::delete('data_file/'.$gambar->file);
+    // Game::delete('app/files/'.$game->cover);
 
-    return redirect()->route('games.index')->with('succes','Course Berhasil di Hapus');
+    
+    return redirect('/games')->with('status', 'Course Berhasil Dihapus');
   }
 
 
-  // DEVELOP NANTI UNTUK READ FILE
-  public function contents($user_id)
+  // NANTI DEVELOP YA
+  // FUNGSI EDIT()
+  public function edit($id)
   {
-    // $game = Game::where('user_id', $user_id)->firstOrFail();
-    // $pathToFile = storage_path('app/files/' . $game->cover);
+    $game = Game::where('id', $id)->first();
+
+    // $students = DB::table('students')->where('id_siswa', $id)->first();
+    return view('games.edit', compact('game'));
+  }
+
+  public function update(Request $request)
+  {
+    $this->validate($request, [
+      'title' => 'required|unique:games',
+      'publisher' => 'required',
+      'releasedate' => 'required',
+      'image' => 'required',
+      'cover' => 'required|mimes:txt',
+    ]);
+
+    DB::table('games')->where('id', $request->id)->update([
+      'title' => request('title'),
+      'publisher' => request('publisher'),
+      'releasedate' => request('releasedate'),
+      'image' => request()->file('image')->store('public/images'),
+    ]);
+
+    // This is for store file
+    if ($request->hasFile('cover')) {
+      $game['cover'] = $request->cover->getClientOriginalName();
+      $request->cover->storeAs('files', $game['cover']);
+    }
     
-    // return response()->download($pathToFile);
 
-    $contents = File::get(storage_path('app/files/' . $game->cover));
+    return redirect('/games')->with('status', 'Data Course Berhasil Diubah');
+  }
 
-    return $contents;
+
+
+
+
+  // DEVELOP NANTI UNTUK READ FILE
+  public function contents($id)
+  {
+    $game = Game::where('id', $id)->firstOrFail();
+
+    foreach(file('yourfile.txt') as $line) {
+      // loop with $line for each line of yourfile.txt
+    }
+
+
+    // return dd($contents);
+    return view('games.show');
   }
   
 
