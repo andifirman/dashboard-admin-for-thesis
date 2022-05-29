@@ -27,22 +27,29 @@
 
 
 
-// Fungsi untuk menentukan max-length dari deskripsi yang akan ditampilkan pada show course (materi)
+// Fungsi untuk menentukan max-length dari deskripsi yang akan ditampilkan pada show course (materi) BYCLASS
+// function truncateText(selector, maxLength) {
+//   var element = document.querySelector(selector);
+//   var truncated = element.innerText;
 
-function truncateText(selector, maxLength) {
-  var element = document.querySelector(selector),
-    truncated = element.innerText;
+//   console.log(element);
+//   if (truncated.length > maxLength) {
+//     truncated = truncated.substring(0, maxLength) + '...';
+//   }
 
-  if (truncated.length > maxLength) {
-    truncated = truncated.substr(0, maxLength) + '...';
-  }
-  return truncated;
-}
+//   return truncated;
+// }
 
-// Ini untuk max-length pada show
-document.querySelector('p.file-content-show').innerText = truncateText('p.file-content-show', 350);
-// Ini untuk max-length pada index
-document.querySelector('p.file-content-index').innerText = truncateText('p.file-content-index', 200);
+
+// document.querySelector('p.content-index').innerText = truncateText('p.content-index', 135);
+
+
+
+// document.getElementById('content-show').innerHTML = truncateTextById('content-show', 350);
+// // document.querySelector('.content-show').innerText = truncateText('.content-show', 350);
+
+
+
 
 
 // Text on Hover pada halaman show course detail

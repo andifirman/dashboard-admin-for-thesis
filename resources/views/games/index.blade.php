@@ -2,6 +2,8 @@
 
 @section('content')
 
+  
+
   <div class="row justify-content-center">
     <div class="col-11 column-index">
       
@@ -28,12 +30,21 @@
             <a href="/games/{{ $game->id }}"><h5 class="heading-content"> {{ $game->title }} </h5></a>
           </div>
 
-          <div class="col-7">
-            <p class="file-content-index"> 
+          <div class="col-7 headline-status-container">
+            <!-- <p class="content-index" id="content-index">  -->
+            <!-- <p class="content-index col-7" id="fos" style="border: 1px solid #FFF;">
               {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
-            </p>
+            </p> -->
+            <span class="headline-text d-inline">
+              {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
+            </span>
           </div>
           
+          <!-- <div id="fos">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi ligula, dapibus a volutpat sit amet, mattis et dui. Nunc porttitor accumsan orci id luctus. Phasellus ipsum metus, tincidunt non rhoncus id, dictum a lectus. Nam sed ipsum a lacus sodales eleifend. Vestibulum lorem felis, rhoncus elementum vestibulum eget, dictum ut velit. Nullam venenatis, elit in suscipit imperdiet, orci purus posuere mauris, quis adipiscing ipsum urna ac quam.</p>  
+          </div> -->
+
+
           <div class="col-2 crud-icon"> 
             <a href="/games/edit/{{ $game->id }}" class="mr-3">
               <!-- <img src="{{ asset('image/icon/edit-2.png') }}" alt="edit"> -->

@@ -6,7 +6,7 @@
 
   <div class="row align-items-center">
   
-    <div class="col-4 mt-5">
+    <div class="col-7 mt-5">
       <h2 class="heading-content"> Planet {{ $game->title }} </h2>
     </div>
   </div>
@@ -24,8 +24,8 @@
       </div>
       <div class="row">
         <div class="col-10 ml-5">
-        <!-- INI NANTI DIISI SAMA CONTENT YANG ADA DI DALEM FILE .TXT -->
-          <p class="file-content-show"> 
+        <!-- DIISI SAMA CONTENT YANG ADA DI DALEM FILE .TXT -->
+          <p class="content-show" id="content-show"> 
             {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
           </p>
         </div>
