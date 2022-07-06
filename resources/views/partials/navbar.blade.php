@@ -63,6 +63,7 @@
             <a class="dropdown-item " href="/games/create"> Create a Course </a>
             <a class="dropdown-item " href="/quizzes/create"> Create a Quiz </a>
             <a class="dropdown-item" href="/reviews"> Review List </a>
+            <a class="dropdown-item" href="#"> Registered Student </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout"> Log Out </a>
           @else
