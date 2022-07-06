@@ -7,38 +7,38 @@
   <div class="row justify-content-center">
     <div class="col-11 column-index">
       
-      <h2 class="heading-content"> Course List </h2>
+      <h2 class="heading-content"> Daftar Kuis </h2>
 
       <div class="row row-content">
         <div class="col-3">
-          <h5 class="heading-content"> Planet Name </h4>
+          <h5 class="heading-content"> Nama Kuis Planet </h4>
         </div>
         <div class="col-7">
-          <h5 class="heading-content"> Description </h4>
+          <h5 class="heading-content"> Deskripsi </h4>
         </div>
         <div class="col-2">
-          <h5 class="heading-content"> Action </h4>
+          <h5 class="heading-content"> Aksi </h4>
         </div>
       </div>
 
       <hr style="border-top: 1px solid #C4C4C4; height: 1px;">
 
 
-      @foreach($games as $game)
+      @foreach($quizzes as $quiz)
         <div class="row justify-content">
           <div class="col-3">
-            <a href="/public/games/{{ $game->id }}"><h5 class="heading-content"> {{ $game->title }} </h5></a>
+            <a href="/quizzes/{{ $quiz->id }}"><h5 class="heading-content"> {{ $quiz->title }} </h5></a>
           </div>
 
           <div class="col-7 headline-status-container">
             <span class="headline-text d-inline">
-              {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
+              {{ file_get_contents(storage_path('app/quiz/' . $quiz->cover)) }}
             </span>
           </div>
           
 
           <div class="col-2 crud-icon"> 
-            <a href="/games/edit/{{ $game->id }}" class="mr-3">
+            <a href="/quizzes/edit/{{ $quiz->id }}" class="mr-3">
               <!-- <img src="{{ asset('image/icon/edit-2.png') }}" alt="edit"> -->
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.575 4.50003L6.3125 15.3625C5.925 15.775 5.55 16.5875 5.475 17.15L5.0125 21.2C4.85 22.6625 5.9 23.6625 7.35 23.4125L11.375 22.725C11.9375 22.625 12.725 22.2125 13.1125 21.7875L23.375 10.925C25.15 9.05003 25.95 6.91253 23.1875 4.30003C20.4375 1.71253 18.35 2.62503 16.575 4.50003Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -47,7 +47,7 @@
               </svg>
             </a> 
 
-            <a href="/games/{{ $game->id }}" class="mr-3">
+            <a href="/quizzes/{{ $quiz->id }}" class="mr-3">
               <!-- <img src="{{ asset('image/icon/eye.png') }}" alt="read"> -->
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.475 15C19.475 17.475 17.475 19.475 15 19.475C12.525 19.475 10.525 17.475 10.525 15C10.525 12.525 12.525 10.525 15 10.525C17.475 10.525 19.475 12.525 19.475 15Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -55,7 +55,7 @@
               </svg>
             </a> 
 
-            <a href="/games/delete/{{$game->id}}" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Course Ini?');">
+            <a href="/quizzes/delete/{{$quiz->id}}" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Course Ini?');">
               <!-- <img src="{{ asset('image/icon/close-circle.png') }}" alt="delete"> -->
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 27.5C21.875 27.5 27.5 21.875 27.5 15C27.5 8.125 21.875 2.5 15 2.5C8.125 2.5 2.5 8.125 2.5 15C2.5 21.875 8.125 27.5 15 27.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -69,18 +69,6 @@
 
 
 
-      <!-- @foreach($games as $game)
-        <div class="mb-3">
-            <div class="card">
-              <div class="card-block card-set">
-                <h3 class="card-title"><a href="/games/{{ $game->id }}"> {{ $game->title }} </a></h3>
-                <p class="card-text"> Published by {{ $game->publisher }} </p>
-                <p class="small"> Game submitted by user {{ $game->user->name }} </p>
-                <a href="/games/{{ $game->id }}" class="btn btn-primary"> Learn More </a>
-            </div>
-          </div>
-        </div>
-      @endforeach -->
 
 
     </div>

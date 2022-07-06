@@ -7,13 +7,13 @@
   <div class="row align-items-center">
   
     <div class="col-7 mt-5">
-      <h2 class="heading-content"> Planet {{ $game->title }} </h2>
+      <h2 class="heading-content"> Planet {{ $quiz->title }} </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-4 justify-content-center align-items-center">
-      <img class="course-img" src="{{ Storage::url($game->image) }}" alt="Card image cap">
+      <img class="course-img" src="{{ asset('image/quiz_img.png') }}" alt="Card image cap">
     </div>
 
     <div class="col-8 mt-auto mb-auto">
@@ -26,7 +26,7 @@
         <div class="col-10 ml-5">
         <!-- DIISI SAMA CONTENT YANG ADA DI DALEM FILE .TXT -->
           <p class="content-show" id="content-show">
-            {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
+            {{ file_get_contents(storage_path('app/quiz/' . $quiz->cover)) }}
           </p>
         </div>
       </div>
@@ -51,14 +51,14 @@
             </svg>
           </a>
 
-          <a href="{{ route('games.download', $game->user_id) }}" class="mr-auto p-2">
+          <a href="{{ route('quizzes.download', $quiz->user_id) }}" class="mr-auto p-2">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22 10V15C22 20 20 22 15 22H9C4 22 2 20 2 15V9C2 4 4 2 9 2H14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
 
-          <a href="/games/delete/{{$game->id}}" class="p-2" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Course Ini?');">
+          <a href="/quizzes/delete/{{$quiz->id}}" class="p-2" onclick="return confirm('Apakah Anda Yakin Akan Menghapus Course Ini?');">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 27.5C21.875 27.5 27.5 21.875 27.5 15C27.5 8.125 21.875 2.5 15 2.5C8.125 2.5 2.5 8.125 2.5 15C2.5 21.875 8.125 27.5 15 27.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M11.4624 18.5375L18.5374 11.4625" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,57 +72,5 @@
     </div>
   </div>
 
-
-
-
-
-    <!-- <div class="row">
-        <div class="col-8">
-            <div class="card" style="width: 270px; margin: 5px;">
-                <img class="card-img-top" src="{{ Storage::url($game->image) }}" alt="Card image cap"> -->
-                
-                <!-- INI ALTERNATIF KALAU BENER BENER GA BISA -->
-                <!-- <img class="card-img-top" src="{{ asset('image/hK07okVkSkkZB92HNkH4luTILsAVnnDUX8NoJRB2.png') }}" alt="Card image cap"> -->
-                <!-- ---------------------------------------- -->
-
-                <!-- <div class="card-block ">
-                    <h3 class="card-title ">{{ $game->title }}</h3>
-                    <p class="card-text">{{ $game->title }} is published by {{ $game->publisher }}</p>
-                    <p class="small">Game submitted by user {{ $game->user->name }}</p>
-                    <p class="small">
-                      File uploaded: 
-                      <a href="{{ route('games.download', $game->user_id) }}">
-                        {{ $game->cover }}
-                      </a>
-                    </p>
-
-                    <a href="games" class="btn btn-primary">List All Games</a>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="col-4">
-            @include('partials.activeusers')
-        </div> -->
-    <!-- </div>
-    <hr>
-
-    <div class="reviews">
-        <h4>What Gamers Are Saying</h4>
-        <ul class="list-group">
-            @foreach($game->reviews as $review)
-                <li class="list-group-item">{{ $review->body }}
-                    <hr>
-                    <a href="/reviews/{{$review->id}}">
-                        <small class="text-primary">posted {{ \Carbon\Carbon::parse($review->created_at)->diffForHumans() }} by
-                            user {{ $review->user->name }}</small>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-
-    <div class="mb-3">
-        <h4 class="mt-3"><a href="/reviews/{{$game->id}}/create">Add A Review!</a></h4>
-    </div> -->
 
 @endsection

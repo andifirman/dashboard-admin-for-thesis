@@ -71,11 +71,6 @@ class GamesController extends Controller
     // Ini buat game (soon buat deskripsi course)
     $game = new Game;
     
-    // $game = $request->all();
-
-    // $game['uuid'] = (string)Uuid::generate();
-    // $game->uuid = request('uuid');
-
     $game->title = request('title');
     $game->publisher = request('publisher');
     $game->releasedate = request('releasedate');
@@ -87,28 +82,9 @@ class GamesController extends Controller
       $request->cover->storeAs('files', $game['cover']);
     }
 
-    
-    // And this is for store image (but it is a dummy code)
-    // if ($request->hasFile('image')) {
-    //   $game['image'] = $request->image->getClientOriginalName();
-    //   $request->cover->storeAs('image', $game['image']);
-    // }
 
     $game->user_id = auth()->id();
     $game->save();
-    
-
-    // Ini buat files
-    // $file = $request->all();
-    // $file['uuid'] = (string)Uuid::generate();
-
-    
-    // $game['uuid'] = (string)Uuid::generate();
-
-    // Files::create($file);
-    // Games::create($game);
-
-
 
     session()->flash('message', 'Nice Submission!');
     session()->flash('type', 'success');
@@ -134,9 +110,19 @@ class GamesController extends Controller
     // File::delete('data_file/'.$gambar->file);
     // Game::delete('app/files/'.$game->cover);
 
-    
+    // if(Game::exists(storage_path('app/files/' . $game->cover))){
+    //   Game::delete(storage_path('app/files/' . $game->cover));
+    // }else{
+    //   dd('File does not exists.');
+    // }
+
+
     return redirect('/games')->with('status', 'Course Berhasil Dihapus');
+    
+    
   }
+
+  
 
 
   // NANTI DEVELOP YA

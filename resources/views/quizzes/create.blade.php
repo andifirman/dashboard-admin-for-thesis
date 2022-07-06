@@ -4,12 +4,12 @@
 
   <h2>Add a game</h2>
 
-  <form method="post" action="/games" enctype="multipart/form-data">
+  <form method="post" action="/quizzes" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="form-group row">
-      <label for="titleid" class="col-sm-3 col-form-label"> Course Title </label>
+      <label for="titleid" class="col-sm-3 col-form-label"> Quiz Title </label>
         <div class="col-sm-9">
-            <input name="title" type="text" class="form-control" id="titleid" placeholder="Course Title" required
+            <input name="title" type="text" class="form-control" id="titleid" placeholder="Quiz Title" required
                     value="{{ old('title') }}">
       </div>
     </div>
@@ -17,7 +17,7 @@
       <label for="publisherid" class="col-sm-3 col-form-label"> Publisher </label>
         <div class="col-sm-9">
           <input name="publisher" type="text" class="form-control" id="publisherid"
-                  placeholder="Course Publisher" required value="{{ old('publisher') }}">
+                  placeholder="Publisher" required value="{{ old('publisher') }}">
       </div>
     </div>
     <div class="form-group row">
@@ -28,15 +28,7 @@
       </div>
     </div>
     <div class="form-group row">
-      <label for="gameimageid" class="col-sm-3 col-form-label"> Planet Image </label>
-      <div class="col-sm-9">
-        <input name="image" type="file" id="gameimageid" class="form-control-file" required
-                value="{{ old('image') }}">
-        <span style="margin-left: 15px; width: 480px;" class="custom-file-control"></span>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="cover" class="col-sm-3 col-form-label"> Course File </label>
+      <label for="cover" class="col-sm-3 col-form-label"> Quiz File </label>
       <!-- Cover stands for course files -->
       <div class="col-sm-9">
         <input name="cover" type="file" id="cover" class="form-control-file" required
@@ -49,7 +41,7 @@
 
     <div class="form-group row">
       <div class="offset-sm-3 col-sm-9">
-        <button type="submit" class="btn btn-primary"> Submit Course </button>
+        <button type="submit" class="btn btn-primary"> Submit Quiz </button>
       </div>
     </div>
   

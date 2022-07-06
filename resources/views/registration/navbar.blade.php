@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <a class="navbar-brand" href="#">We Like Games</a>
+  <a class="navbar-brand" href="/games"> Solar System </a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

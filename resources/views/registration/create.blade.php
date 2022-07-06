@@ -20,16 +20,9 @@
           <label for="password">Password:</label>
           <input type="password" class="form-control" id="password" name="password">
 
-          <!-- <input type="password" class="form-control password-reg" id="password-field" name="password" required>
-          <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password mx-auto"></span> -->
-
         </div>
 
-        <!-- <div class="form-group">
-          <input id="password-field" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
-          <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-        </div> -->
-
+       
         <div class="form-group">
             <label for="password_confirmation">Password Confirmation:</label>
             <input type="password" class="form-control" id="password_confirmation"

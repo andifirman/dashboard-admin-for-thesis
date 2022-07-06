@@ -51,8 +51,8 @@
     <ul class="nav navbar-nav ms-auto">
       <!-- Dropdown item menu in navbar -->
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle browse-right" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Browse
+        <a class="nav-link dropdown-toggle browse-right" href="dropdown-menu" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
         </a>
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -60,8 +60,9 @@
 
           @if( auth()->check() )
             <a class="dropdown-item font-weight-bold" href="#"> Hi {{ auth()->user()->name }} </a>
-            <a class="dropdown-item " href="/games/create"> Submit Course </a>
-            <a class="dropdown-item" href="/reviews"> List Reviews </a>
+            <a class="dropdown-item " href="/games/create"> Create a Course </a>
+            <a class="dropdown-item " href="/quizzes/create"> Create a Quiz </a>
+            <a class="dropdown-item" href="/reviews"> Review List </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout"> Log Out </a>
           @else
@@ -107,7 +108,7 @@
           <a class="nav-link" href="/games"> Course </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Quiz </a>
+          <a class="nav-link" href="/quizzes"> Quiz </a>
         </li>
       </ul>
     </div>
