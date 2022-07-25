@@ -51,6 +51,11 @@
 
 
 /* COURSE PAGE */
+.create-heading{
+  color: #FFF;
+  margin-bottom: 1em;
+}
+
 .card-block.card-set{
   background-color: #000;
   border: 1px solid #000 !important;
@@ -88,6 +93,19 @@
 #fos { width: 300px; height: 190px; overflow: hidden; }
 #fos p { padding: 10px; margin: 0; }
 
+
+/* CREATE NEW COURSE */
+.debug-position{
+  border: 1px solid #FF8;
+}
+
+.debug-position .left-margin{
+  border: 1px solid #FFF;
+}
+
+.debug-position input{
+  border: 1px solid #FFF;
+}
 
 
 

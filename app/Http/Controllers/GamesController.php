@@ -75,13 +75,14 @@ class GamesController extends Controller
     $game->publisher = request('publisher');
     $game->releasedate = request('releasedate');
     $game->image = request()->file('image')->store('public/images');
+    $game->imagesrc = request('imagesrc');
 
     // This is for store file
     if ($request->hasFile('cover')) {
       $game['cover'] = $request->cover->getClientOriginalName();
       $request->cover->storeAs('files', $game['cover']);
     }
-
+    $game->coursesrc = request('coursesrc');
 
     $game->user_id = auth()->id();
     $game->save();
@@ -135,6 +136,7 @@ class GamesController extends Controller
     return view('games.edit', compact('game'));
   }
 
+  // TO BE EDIT AS SOON AS POSSIBLE
   public function update(Request $request)
   {
     $this->validate($request, [

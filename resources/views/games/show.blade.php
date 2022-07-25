@@ -7,19 +7,19 @@
   <div class="row align-items-center">
   
     <div class="col-7 mt-5">
-      <h2 class="heading-content"> Planet {{ $game->title }} </h2>
+      <h2 class="heading-content"> {{ $game->title }} Planet  </h2>
     </div>
   </div>
 
   <div class="row">
     <div class="col-4 justify-content-center align-items-center">
-      <img class="course-img" src="{{ Storage::url($game->image) }}" alt="Card image cap">
+      <a href="{{ $game->imagesrc }}"><img class="course-img" src="{{ Storage::url($game->image) }}" alt="Card image cap"></a>
     </div>
 
     <div class="col-8 mt-auto mb-auto">
       <div class="row">
         <div class="col-6 ml-5 mb-4">
-          <h3 class="heading-content"> Deskripsi </h3>
+          <h3 class="heading-content"> Description </h3>
         </div>
       </div>
       <div class="row">
@@ -27,6 +27,12 @@
         <!-- DIISI SAMA CONTENT YANG ADA DI DALEM FILE .TXT -->
           <p class="content-show" id="content-show">
             {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
+          </p>
+        </div>
+        <div class="col-10 ml-5">
+        <!-- DIISI SAMA URL DARI COURSE (COURSESRC) -->
+          <p class="content-show" id="content-show">
+            Source: <a href="{{ $game->coursesrc }}"> {{ $game->coursesrc }} </a>
           </p>
         </div>
       </div>

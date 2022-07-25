@@ -27,7 +27,7 @@
       @foreach($games as $game)
         <div class="row justify-content">
           <div class="col-3">
-            <a href="/public/games/{{ $game->id }}"><h5 class="heading-content"> {{ $game->title }} </h5></a>
+            <a href="/games/{{ $game->id }}"><h5 class="heading-content"> {{ $game->title }} </h5></a>
           </div>
 
           <div class="col-7 headline-status-container">

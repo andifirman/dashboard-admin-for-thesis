@@ -7,7 +7,7 @@
   <div class="row align-items-center">
   
     <div class="col-7 mt-5">
-      <h2 class="heading-content"> Planet {{ $quiz->title }} </h2>
+      <h2 class="heading-content"> {{ $quiz->title }} </h2>
     </div>
   </div>
 

@@ -7,17 +7,17 @@
   <div class="row justify-content-center">
     <div class="col-11 column-index">
       
-      <h2 class="heading-content"> Daftar Kuis </h2>
+      <h2 class="heading-content"> Quiz List </h2>
 
       <div class="row row-content">
         <div class="col-3">
-          <h5 class="heading-content"> Nama Kuis Planet </h4>
+          <h5 class="heading-content"> Quiz Name </h4>
         </div>
         <div class="col-7">
-          <h5 class="heading-content"> Deskripsi </h4>
+          <h5 class="heading-content"> Description </h4>
         </div>
         <div class="col-2">
-          <h5 class="heading-content"> Aksi </h4>
+          <h5 class="heading-content"> Action </h4>
         </div>
       </div>
 
