@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Game;
 
+// Library for random id generator
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +19,23 @@ use App\Models\Game;
 |
 */
 
+// THIS IS FOR GENERATE A RANDOM ID
 Route::get('/', function (){
   return view('welcome');
+
+  // Generate random ID (actually it is for NIS (nomor induk siswa))
+  // $config = ['table'=>'students','length'=>10, 'prefix'=>'18'];
+  // $i = 0;
+  // for($i=0; $i<=9; $i++){
+  //   $id = IdGenerator::generate($config);
+  //   return $id;
+  // }
+  
+  // $id = IdGenerator::generate($config);
+  
+  // \DB::table('students')->insert(['user_id'=>$id]);
+
+  // return $id;
 });
 
 // Symbolic link for hosting
@@ -69,3 +88,7 @@ Route::post('/register', 'App\Http\Controllers\RegistrationController@store');
 Route::get('/login', 'App\Http\Controllers\SessionsController@create')->name('login');
 Route::post('/login', 'App\Http\Controllers\SessionsController@store');
 Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy');
+
+// Students Route
+Route::get('/students/create', 'App\Http\Controllers\StudentController@index');
+Route::post('/students/save', 'App\Http\Controllers\StudentController@save')->name('student.save');

@@ -23,9 +23,10 @@ class CreateGamesTable extends Migration
         $table->string('publisher');
         $table->integer('releasedate');
         $table->string('image');
-
+        $table->string('imagesrc');
         $table->string('cover')->nullable();
-        
+        $table->string('coursesrc');
+
         $table->timestamps();
       });
     }
