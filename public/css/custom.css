@@ -255,8 +255,7 @@
 
 
 /* LOGIN BUTTON */
-.btn.btn-primary.login-btn,
-.btn.btn-primary.submit-course-btn{
+.btn.btn-primary.login-btn{
   background-color: #FFF;
   text-transform: none;
   border: 1px solid #1EA5FC !important;
@@ -275,6 +274,9 @@
 
 
 /* INDEX COURSE */
+.btn.btn-primary.sign-up-btn.submit-course{
+  width: 25vh;
+}
 
 
 
