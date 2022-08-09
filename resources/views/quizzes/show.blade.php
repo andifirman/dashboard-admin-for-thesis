@@ -19,7 +19,7 @@
     <div class="col-8 mt-auto mb-auto">
       <div class="row">
         <div class="col-6 ml-5 mb-4">
-          <h3 class="heading-content"> Deskripsi </h3>
+          <h3 class="heading-content"> Description </h3>
         </div>
       </div>
       <div class="row">

@@ -29,7 +29,7 @@
             {{ file_get_contents(storage_path('app/files/' . $game->cover)) }}
           </p>
         </div>
-        <div class="col-10 ml-5">
+        <div class="col-10 ml-5 content-show-root">
         <!-- DIISI SAMA URL DARI COURSE (COURSESRC) -->
           <p class="content-show" id="content-show">
             Source: <a href="{{ $game->coursesrc }}"> {{ $game->coursesrc }} </a>
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="row mt-5">
+      <div class="row mt-5 crud-icon-show">
         <div class="col-10 ml-5 mt-4 d-flex">
           <a href="#" class="p-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Tes Suara">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -27,7 +27,7 @@
 
 
         <div class="col-md-5 px-0 align-items-center">
-          <img src="{{ asset('image/earth.png') }}" class="img-fluid">
+          <img src="{{ asset('image/astronaut.png') }}" class="img-fluid">
         </div>
 
         <div class="col-sm-6">
@@ -55,9 +55,9 @@
               </div>
             </div>
 
-            <div class="form-group text-center">
-              <button type="submit" class="btn btn-light submit-button px-3">
-                <span class="font-weight-bold login-button-text" style="font-size: medium;"> LOGIN </span>
+            <div class="form-group text-center login-button w-70">
+              <button type="submit" class="btn submit-login-button form-control">
+                <span class="login-button-text"> Login </span>
               </button>
             </div>
             

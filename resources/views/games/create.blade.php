@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h2 class="create-heading d-flex justify-content-center"> Add New Course </h2>
+  <h2 class="create-heading d-flex justify-content-start"> Add New Course </h2>
 
   <form method="post" action="/games" enctype="multipart/form-data">
     {{ csrf_field() }}
@@ -66,7 +66,7 @@
 
     <div class="form-group row">
       <div class="offset-sm-3 col-sm-9">
-        <button type="submit" class="btn btn-primary"> Submit Course </button>
+        <button type="submit" class="btn btn-primary submit-course-btn"> Submit Course </button>
       </div>
     </div>
   

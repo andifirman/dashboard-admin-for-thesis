@@ -59,7 +59,7 @@
 
 
           @if( auth()->check() )
-            <a class="dropdown-item font-weight-bold" href="#"> Hi {{ auth()->user()->name }} </a>
+            <!-- <a class="dropdown-item font-weight-bold" href="#"> Hi {{ auth()->user()->name }} </a> -->
             <a class="dropdown-item " href="/games/create"> Create a Course </a>
             <a class="dropdown-item " href="/quizzes/create"> Create a Quiz </a>
             <a class="dropdown-item" href="/reviews"> Review List </a>
@@ -84,25 +84,25 @@
     <div class="navbar-collapse collapse w-100 ms-auto" id="collapsingNavbar3">
       
       <!-- Centered Search Bar -->
-      <ul class="navbar-nav w-100 justify-content-start">
+      <!-- <ul class="navbar-nav w-100 justify-content-start">
         <li class="nav-item">
           <form class="form-inline my-2 my-lg-2 justify-content-end search-box">
             <input class="form-control mr-sm-5 search-box-specified" id="searchbox" type="search" placeholder="Search" aria-label="Search">
           </form>
         </li>
-      </ul>
+      </ul> -->
       
       
-      <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+      <ul class="nav navbar-nav ms-auto w-50 justify-content-end">
         <!-- Notificaion Icon -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="" class="nav-link">
             <i class="fa-solid fa-bell"></i>
           </a>
-        </li>
+        </li> -->
 
         <!-- Navbar Item -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/login"> Home </a>
         </li>
         <li class="nav-item">
@@ -112,6 +112,73 @@
           <a class="nav-link" href="/quizzes"> Quiz </a>
         </li>
       </ul>
+
+      @if( auth()->check() )
+      <div class="profile-picture w-50 d-flex justify-content-end align-items-center">
+        <a href="#">
+          <img src="{{ asset('image/icon/blank-profile-picture.png') }}">
+          {{ auth()->user()->name }}
+        </a>
+      </div>
+      @else
+        <ul class="nav navbar-nav ms-auto w-50 justify-content-end">
+          <li class="nav-item">
+            <a href="#" data-toggle="dropdown" class="btn btn-primary sign-up-btn" data-toggle="dropdown"> Sign up </a>
+            <div class="dropdown-menu dropdown-menu-right-form action-form">
+              <form action="#" method="post">
+                <p class="hint-text"> Sign Up </p>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+                </div>
+                <div class="form-group">
+                  <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+                </div>
+
+                <input type="submit" class="btn btn-primary sign-up-btn" value="Sign Up">
+              </form>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" data-toggle="dropdown" class="btn btn-primary login-btn" data-toggle="dropdown"> Login </a>
+            <div class="dropdown-menu dropdown-menu-right-form action-form">
+              <form action="#" method="post">
+                <p class="hint-text"> Login </p>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Password" required="required">
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+                </div>
+                
+                <input type="submit" class="btn btn-primary sign-up-btn" value="Login">
+              </form>
+            </div>
+          </li>
+        </ul>
+      @endif
+
     </div>
   </div>
 </nav>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var url = window.location;
+    $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+    $('ul.nav a').filter(function() {
+      return this.href == url;
+    }).parent().addClass('active');
+  });
+</script>

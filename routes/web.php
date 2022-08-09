@@ -7,6 +7,7 @@ use App\Models\Game;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ChartsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::get('/foo', function () {
 });
 
 
+
 //-- Course Resource --//
 Route::get('/games', 'App\Http\Controllers\GamesController@index');
 Route::get('/games/create', 'App\Http\Controllers\GamesController@create');
@@ -51,7 +53,7 @@ Route::post('/games', 'App\Http\Controllers\GamesController@store');
 Route::get('/games/{game}', 'App\Http\Controllers\GamesController@show');
 Route::get('/games/delete/{id}', 'App\Http\Controllers\GamesController@delete');
 Route::get('/games/edit/{id}', 'App\Http\Controllers\GamesController@edit');
-Route::post('/games/update', 'App\Http\Controllers\GamesController@update');
+Route::post('/games/receive', 'App\Http\Controllers\GamesController@receive');
 
 //-- Course Files Download Routes --//
 Route::get('/games/{user_id}/download', 'App\Http\Controllers\GamesController@download')->name('games.download');
@@ -89,6 +91,23 @@ Route::get('/login', 'App\Http\Controllers\SessionsController@create')->name('lo
 Route::post('/login', 'App\Http\Controllers\SessionsController@store');
 Route::get('/logout', 'App\Http\Controllers\SessionsController@destroy');
 
-// Students Route
-Route::get('/students/create', 'App\Http\Controllers\StudentController@index');
-Route::post('/students/save', 'App\Http\Controllers\StudentController@save')->name('student.save');
+// Pie Chart Route
+// Route::get('/pie', 'App\Http\Controllers\ProductController@get_all_products_for_pie_chart');
+Route::get('/charts/index', 'App\Http\Controllers\ChartsController@index');
+Route::get('/charts/show', 'App\Http\Controllers\ChartsController@showing');
+// Route::get('/charts/show', [ChartsController::class,'show']);
+
+
+// I try to use faker to generate some random name and nis
+Route::get('/generate', function(){
+  $faker = Faker\Factory::create();
+  $limit = 10;
+
+  for($i = 0; $i < $limit; $i++){
+    echo nl2br (
+      'Student Name: ' . $faker->name . 
+      ', NIS: ' . $faker->unique()->numerify('##########') . 
+      ', Student Score: ' . $faker->numerify('#') . "\n"
+    );
+  }
+});

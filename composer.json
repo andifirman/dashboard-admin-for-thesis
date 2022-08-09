@@ -12,6 +12,7 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "laraveldaily/laravel-charts": "^0.1.29",
         "webpatser/laravel-uuid": "3.0"
     },
     "require-dev": {

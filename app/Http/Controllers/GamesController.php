@@ -107,20 +107,7 @@ class GamesController extends Controller
   public function delete($id)
   {
     $game = Game::where('id', $id)->delete();
-    // DB::table('students')->where('id_siswa', $id)->delete();
-    // File::delete('data_file/'.$gambar->file);
-    // Game::delete('app/files/'.$game->cover);
-
-    // if(Game::exists(storage_path('app/files/' . $game->cover))){
-    //   Game::delete(storage_path('app/files/' . $game->cover));
-    // }else{
-    //   dd('File does not exists.');
-    // }
-
-
     return redirect('/games')->with('status', 'Course Berhasil Dihapus');
-    
-    
   }
 
   
