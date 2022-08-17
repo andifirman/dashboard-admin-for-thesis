@@ -83,15 +83,6 @@
 
     <div class="navbar-collapse collapse w-100 ms-auto" id="collapsingNavbar3">
       
-      <!-- Centered Search Bar -->
-      <!-- <ul class="navbar-nav w-100 justify-content-start">
-        <li class="nav-item">
-          <form class="form-inline my-2 my-lg-2 justify-content-end search-box">
-            <input class="form-control mr-sm-5 search-box-specified" id="searchbox" type="search" placeholder="Search" aria-label="Search">
-          </form>
-        </li>
-      </ul> -->
-      
       
       <ul class="nav navbar-nav ms-auto w-50 justify-content-end">
         <!-- Notificaion Icon -->
@@ -122,48 +113,114 @@
       </div>
       @else
         <ul class="nav navbar-nav ms-auto w-50 justify-content-end">
+          <!-- SIGN UP SECTION -->
           <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="btn btn-primary sign-up-btn" data-toggle="dropdown"> Sign up </a>
-            <div class="dropdown-menu dropdown-menu-right-form action-form">
-              <form action="#" method="post">
-                <p class="hint-text"> Sign Up </p>
+            <button type="button" class="btn btn-primary sign-up-btn" data-toggle="modal" data-target="#signupmodal">
+              Sign Up
+            </button>
 
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                </div>
-                <div class="form-group">
-                  <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-                </div>
+            <!-- Modal -->
+            <div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Sign Up for New User </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
 
-                <input type="submit" class="btn btn-primary sign-up-btn" value="Sign Up">
-              </form>
+                  <div class="modal-body">
+                    <form method="POST" action="/register">
+                      {{ csrf_field() }}
+                      
+                      <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" name="name">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" name="email">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+
+                      </div>
+
+                    
+                      <div class="form-group">
+                          <label for="password_confirmation">Password Confirmation:</label>
+                          <input type="password" class="form-control" id="password_confirmation"
+                                name="password_confirmation" required>
+                      </div>
+
+                      <!-- <div class="form-group submit-btn">
+                        <button style="cursor:pointer;" type="submit" class="btn btn-primary submit-reg">Submit</button>
+                      </div> -->
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal"> Cancel </button>
+                        <button type="submit" class="btn btn-primary sign-up-btn submit-btn" style="font-weight: normal; cursor:pointer;"> Sign Up </button>
+                      </div>
+                      @include('partials.formerrors')
+                      
+                   </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </li>
 
+          <!-- LOGIN SECTION -->
           <li class="nav-item">
-            <a href="#" data-toggle="dropdown" class="btn btn-primary login-btn" data-toggle="dropdown"> Login </a>
-            <div class="dropdown-menu dropdown-menu-right-form action-form">
-              <form action="#" method="post">
-                <p class="hint-text"> Login </p>
+            <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#loginModal">
+              Login
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Login </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
 
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
+                  <div class="modal-body">
+                    <form method="POST" action="/login" class="signin-form justify-content-center">
+                      {{ csrf_field() }}
+
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email" id="email" name="email" required>
+                      </div>
+                        
+                      <div class="form-group">
+                        <input id="password-field" type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="w-100 forgot-password-section text-right">
+                          <a href="#" style="color: #898989;"> Forgot Password </a>
+                        </div>
+                      </div>
+
+                      <div class="form-group text-center login-button w-70">
+                        <button type="submit" class="btn submit-login-button form-control">
+                          <span class="login-button-text"> Login </span>
+                        </button>
+                      </div>
+                      
+                      @include('partials.formerrors')
+                    </form>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                </div>
-                
-                <input type="submit" class="btn btn-primary sign-up-btn" value="Login">
-              </form>
+              </div>
             </div>
           </li>
         </ul>

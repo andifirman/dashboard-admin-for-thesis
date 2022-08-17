@@ -69,6 +69,24 @@
   color: #5F5F5F;
 }
 
+.mid-range{
+  /* border: 1px solid #000; */
+  font-size: 7vh;
+  font-weight: 600;
+  line-height: initial;
+}
+
+.description-left{
+  margin-top: 25px;
+}
+
+.heading-rocket{
+  /* BLUE OF THE BASE COLOR */
+  color: #1EA5FC;
+  font-size: 5vh;
+}
+
+
 /* .image-cover{
   box-shadow: 10px 10px 5px #ccc;
   -moz-box-shadow: 10px 10px 5px #ccc;
@@ -108,6 +126,7 @@
 
 .heading-content{
   color: #0F0F1F;
+  font-weight: bold;
 }
 
 .row-content{
@@ -272,10 +291,38 @@
   border: 1px solid #FFF !important;
 }
 
+/* EXPLORE BUTTON */
+.btn.btn-primary.explore-btn{
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: #1EA5FC !important;
+  text-transform: none;
+  font-weight: bold;
+  width: 90px;
+  color: #FFF !important;
+  font-size: medium;
+}
+.btn.btn-primary.explore-btn:hover{
+  background-color: #FFF !important;
+  color: #1EA5FC !important;
+  border: 1px solid #1EA5FC !important;
+}
+
 
 /* INDEX COURSE */
 .btn.btn-primary.sign-up-btn.submit-course{
   width: 25vh;
+}
+
+/* CREATE COURSE AND QUIZZES */
+input[name="cover"],
+input[name="image"]{
+  font-size: 15px;
+}
+
+/* SHOW COURSE */
+.show-image-content img{
+  border: 1px solid #000;
 }
 
 
@@ -8538,7 +8585,7 @@ h1, h2, h3, h4, h5,
   padding-right: 20px;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
-  transition: 0.3s; }
+  transition: 0.3s all; }
   @media (prefers-reduced-motion: reduce) {
     .form-control {
       -webkit-transition: none;
@@ -8558,12 +8605,76 @@ h1, h2, h3, h4, h5,
     color: rgba(0, 0, 0, 0.4) !important; }
   .form-control:hover, .form-control:focus {
     background: transparent;
-    outline: none;
+    outline: #1EA5FC;
     -webkit-box-shadow: none;
     box-shadow: none;
-    border-color: rgba(0, 0, 0, 0.9); }
+    transition: 0.3s ease-in-out;
+    /* border-color: #1EA5FC; } */
+    border: 1px solid #1EA5FC;
+    outline: 0;
+    box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.075),
+                      0px 0px 4px rgba(30, 165, 252, 1); }
   .form-control:focus {
-    border-color: rgba(0, 0, 0, 0.9); }
+    border-color: #1EA5FC; }
+    
+    /* border: 2px solid #1EA5FC; } */
+  
+/* Modif form-control class */
+.form-control-modif {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+}
+.form-control-modif:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.075),
+    0px 0px 8px rgba(233, 102, 194, 1);
+}
+.form-control-modif::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.form-control-modif:-ms-input-placeholder {
+  color: #999;
+}
+.form-control-modif::-webkit-input-placeholder {
+  color: #999;
+}
+.form-control-modif::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 textarea.form-control {
   height: inherit !important; }

@@ -28,6 +28,12 @@ class CreateGamesTable extends Migration
         $table->string('coursesrc');
 
         $table->timestamps();
+        $table->unsignedBigInteger('users_id');
+        // $table->foreign('id')
+        //       ->references('id')
+        //       ->on('users')
+        //       ->onDelete('cascade')
+        //       ->onUpdate('cascade');
       });
     }
 
@@ -39,5 +45,6 @@ class CreateGamesTable extends Migration
     public function down()
     {
       Schema::dropIfExists('games');
+      
     }
 }

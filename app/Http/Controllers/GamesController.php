@@ -38,7 +38,6 @@ class GamesController extends Controller
   }
 
 
-
   // INI YANG BENER
   public function show(Game $game)
   {

@@ -18,6 +18,14 @@ class CreateStudentsTable extends Migration
             $table->text('nis');
             $table->text('name');
             $table->timestamps();
+
+            $table->unsignedBigInteger('users_id');
+        
+            // $table->foreign('users_id')
+            //       ->references('id')
+            //       ->on('users')
+            //       ->onDelete('cascade')
+            //       ->onUpdate('cascade');
         });
     }
 

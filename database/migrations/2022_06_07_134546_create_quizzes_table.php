@@ -23,9 +23,18 @@ class CreateQuizzesTable extends Migration
         $table->string('publisher');
         $table->integer('releasedate');
 
-        $table->string('cover')->nullable();
+        // QUIZ DOESN'T NEED AN IMAGE
+        // $table->string('cover')->nullable();
         
         $table->timestamps();
+        $table->unsignedBigInteger('users_id');
+        // $table->foreign('id')
+        //       ->references('id')
+        //       ->on('users')
+        //       ->onDelete('cascade')
+        //       ->onUpdate('cascade');
+        
+        
       });
     }
 

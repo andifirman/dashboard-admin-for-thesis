@@ -12,7 +12,7 @@
   </div>
 
   <div class="row">
-    <div class="col-4 justify-content-center align-items-center">
+    <div class="col-4 justify-content-center align-items-center show-image-content">
       <a href="{{ $game->imagesrc }}"><img class="course-img" src="{{ Storage::url($game->image) }}" alt="Card image cap"></a>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="col-10 ml-5 content-show-root">
         <!-- DIISI SAMA URL DARI COURSE (COURSESRC) -->
           <p class="content-show" id="content-show">
-            Source: <a href="{{ $game->coursesrc }}"> {{ $game->coursesrc }} </a>
+            <b> Source: </b><a href="{{ $game->coursesrc }}"> {{ $game->coursesrc }} </a>
           </p>
         </div>
       </div>

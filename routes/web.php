@@ -45,6 +45,8 @@ Route::get('/foo', function () {
 });
 
 
+//-- Home Controller -- //
+Route::get('/home', 'App\Http\Controllers\HomeController@index');
 
 //-- Course Resource --//
 Route::get('/games', 'App\Http\Controllers\GamesController@index');
