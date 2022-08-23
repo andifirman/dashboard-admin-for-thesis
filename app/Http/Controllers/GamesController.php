@@ -63,11 +63,15 @@ class GamesController extends Controller
       'publisher' => 'required',
       'releasedate' => 'required',
       'image' => 'required',
+      'imagesrc' => 'required',
       'cover' => 'required|mimes:txt',
+      'coursesrc' => 'required',
     ]);
 
-      
-    // Ini buat game (soon buat deskripsi course)
+    // To get foreign key
+    $email = $request->session()->get('email');
+    // $id = User::where('email', $email)->select('id')->get();
+
     $game = new Game;
     
     $game->title = request('title');
@@ -84,6 +88,9 @@ class GamesController extends Controller
     $game->coursesrc = request('coursesrc');
 
     $game->user_id = auth()->id();
+    $game->users_id = auth()->id();
+
+
     $game->save();
 
     session()->flash('message', 'Nice Submission!');
@@ -110,63 +117,75 @@ class GamesController extends Controller
   }
 
   
-
-
-  // NANTI DEVELOP YA
   // FUNGSI EDIT()
   public function edit($id)
   {
-    $game = Game::where('id', $id)->first();
+    // $game = Game::findOrFail($id);
+    
+    // // return view('games.edit',['game' = $game]);
+    // return view('games.edit',['game' => $game]);
 
-    // $students = DB::table('students')->where('id_siswa', $id)->first();
+    $game = Game::findOrFail($id);
+
     return view('games.edit', compact('game'));
   }
 
-  // TO BE EDIT AS SOON AS POSSIBLE
-  public function update(Request $request)
+  public function update(Request $request, $id)
   {
-    $this->validate($request, [
+    // $game = Game::find($id)->update($request->all()); 
+          
+    // return view('games.index')->with('success',' Course Updated Successfully');
+    $validatedData = $request->validate([
       'title' => 'required|unique:games',
       'publisher' => 'required',
       'releasedate' => 'required',
       'image' => 'required',
-      'cover' => 'required|mimes:txt',
+      'imagesrc' => 'required',
+      // 'cover' => 'required|mimes:txt',
+      'cover' => 'required',
+      'coursesrc' => 'required',
     ]);
+    
+    $game = Game::where('id', $id)->first();
 
-    DB::table('games')->where('id', $request->id)->update([
-      'title' => request('title'),
-      'publisher' => request('publisher'),
-      'releasedate' => request('releasedate'),
-      'image' => request()->file('image')->store('public/images'),
-    ]);
+    // dd($game);
+    $game->title = request('title');
+    $game->publisher = request('publisher');
+    $game->releasedate = request('releasedate');
+    $game->image = request()->file('image')->store('public/images');
+    $game->imagesrc = request('imagesrc');
 
     // This is for store file
     if ($request->hasFile('cover')) {
       $game['cover'] = $request->cover->getClientOriginalName();
       $request->cover->storeAs('files', $game['cover']);
     }
+    $game->coursesrc = request('coursesrc');
+
+    $game->user_id = auth()->id();
+    $game->users_id = auth()->id();
     
 
-    return redirect('/games')->with('status', 'Data Course Berhasil Diubah');
+    $game->save();
+
+    // Game::whereId($id)->update($game);
+
+    return redirect('/games')->with('success', 'Course successfully updated');
+    // return redirect()->route('games.show', $game->id)->with('success', 'Course successfully updated');
   }
-
-
-
-
-
+  // , ['game' = $game]
   // DEVELOP NANTI UNTUK READ FILE
-  public function contents($id)
-  {
-    $game = Game::where('id', $id)->firstOrFail();
+  // public function contents($id)
+  // {
+  //   $game = Game::where('id', $id)->firstOrFail();
 
-    foreach(file('yourfile.txt') as $line) {
-      // loop with $line for each line of yourfile.txt
-    }
+  //   foreach(file('yourfile.txt') as $line) {
+  //     // loop with $line for each line of yourfile.txt
+  //   }
 
-
-    // return dd($contents);
-    return view('games.show');
-  }
+  //   // return dd($contents);
+  //   return view('games.show');
+  // }
   
 
 }

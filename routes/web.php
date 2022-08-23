@@ -55,7 +55,10 @@ Route::post('/games', 'App\Http\Controllers\GamesController@store');
 Route::get('/games/{game}', 'App\Http\Controllers\GamesController@show');
 Route::get('/games/delete/{id}', 'App\Http\Controllers\GamesController@delete');
 Route::get('/games/edit/{id}', 'App\Http\Controllers\GamesController@edit');
-Route::post('/games/receive', 'App\Http\Controllers\GamesController@receive');
+// Route::get('/games/update/{id}', 'App\Http\Controllers\GamesController@update')->name('games.update');
+Route::post('/games/update/{id}', 'App\Http\Controllers\GamesController@update')->name('games.update');
+
+// Route::post('/games/receive', 'App\Http\Controllers\GamesController@receive');
 
 //-- Course Files Download Routes --//
 Route::get('/games/{user_id}/download', 'App\Http\Controllers\GamesController@download')->name('games.download');

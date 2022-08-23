@@ -62,12 +62,12 @@
             <!-- <a class="dropdown-item font-weight-bold" href="#"> Hi {{ auth()->user()->name }} </a> -->
             <a class="dropdown-item " href="/games/create"> Create a Course </a>
             <a class="dropdown-item " href="/quizzes/create"> Create a Quiz </a>
-            <a class="dropdown-item" href="/reviews"> Review List </a>
-            <a class="dropdown-item" href="#"> Registered Student </a>
+            <!-- <a class="dropdown-item" href="/reviews"> Review List </a> -->
+            <!-- <a class="dropdown-item" href="#"> Registered Student </a> -->
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/logout"> Log Out </a>
           @else
-            <a class="dropdown-item" href="/register"> Register </a>
+            <a class="dropdown-item" href="/register"> Sign Up </a>
           @endif  
           
         </div>
@@ -85,13 +85,6 @@
       
       
       <ul class="nav navbar-nav ms-auto w-50 justify-content-end">
-        <!-- Notificaion Icon -->
-        <!-- <li class="nav-item">
-          <a href="" class="nav-link">
-            <i class="fa-solid fa-bell"></i>
-          </a>
-        </li> -->
-
         <!-- Navbar Item -->
         <li class="nav-item">
           <a class="nav-link" href="/login"> Home </a>

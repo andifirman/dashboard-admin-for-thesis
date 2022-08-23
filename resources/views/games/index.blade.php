@@ -38,6 +38,7 @@
           
 
           <div class="col-2 crud-icon"> 
+            <!-- <a href="/games/edit/{{ $game->id }}" class="mr-3"> -->
             <a href="/games/edit/{{ $game->id }}" class="mr-3">
               <!-- <img src="{{ asset('image/icon/edit-2.png') }}" alt="edit"> -->
               <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">

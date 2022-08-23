@@ -10,6 +10,11 @@ use App\Models\Student;
 
 class ChartsController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth')->except(['index']);
+  }
+
   public function index()
   {
     // $students = \App\Models\Student::all();

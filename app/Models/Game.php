@@ -11,7 +11,7 @@ class Game extends Model
   use HasFactory;
 
   // protected $fillable = ['user_id', 'title', 'cover'];
-  protected $fillable = ['cover'];
+  protected $fillable = ['cover', 'users_id'];
 
 
 

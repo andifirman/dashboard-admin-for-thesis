@@ -32,7 +32,7 @@
       </div>
 
       <div class="row mt-5">
-        <div class="col-10 ml-5 mt-4 d-flex">
+        <div class="col-10 ml-5 mt-4 d-flex crud-icon-show">
           <a href="#" class="p-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Tes Suara">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3.75 10.3125V19.6875" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

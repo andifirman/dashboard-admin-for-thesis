@@ -81,6 +81,7 @@ class QuizController extends Controller
 
 
     $quiz->user_id = auth()->id();
+    $quiz->users_id = auth()->id();
     $quiz->save();
 
     session()->flash('message', 'Nice Submission!');

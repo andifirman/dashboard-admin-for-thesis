@@ -24,7 +24,7 @@ class CreateQuizzesTable extends Migration
         $table->integer('releasedate');
 
         // QUIZ DOESN'T NEED AN IMAGE
-        // $table->string('cover')->nullable();
+        $table->string('cover')->nullable();
         
         $table->timestamps();
         $table->unsignedBigInteger('users_id');

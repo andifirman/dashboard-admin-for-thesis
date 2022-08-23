@@ -25,8 +25,11 @@ class AddStuScoreToStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('students', function (Blueprint $table) {
-          $table->dropColumn('stu_score');
-        });
+        // Schema::table('students', function (Blueprint $table) {
+        //   $table->dropColumn('stu_score');
+        // });
+      Schema::table('quizzes', function (Blueprint $table) {
+        $table->addColumn('cover');
+      });
     }
 }
